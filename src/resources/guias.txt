@@ -1,0 +1,5 @@
+Baquedano;Santiago;46000;Pedro Ascui;18638007k
+Cerro San Cristobal;Santiago;35000;Pablo Fenner;18638789
+Puertos;Valparaiso;25000;Benjamin Mayor;167865098
+Volcan;Frutillar;20000;Camila Ortiz;157896547
+Cruz de Jesus;Valparaiso;17000;Maja Croizverg;165438876
