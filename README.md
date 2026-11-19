@@ -1,40 +1,58 @@
-
-# Llanquihue-tour
+# LlanquihueTourApp
 
 **Autor:** Pedro Ascui
 
 ## Descripción
-Aplicación en Java que lee desde un archivo de texto (`archivos.txt`) la
-información de los tours clasificados de la agencia Llanquihue Tour. Los
-datos se cargan en objetos `Tours`, se guardan en un `ArrayList` y luego
-se recorren y filtran por lugar para mostrarlos en consola.
+Sistema en Java para la agencia de turismo Llanquihue Tour. Lee desde un
+archivo de texto externo (`guias.txt`) los datos de los guías turísticos,
+los carga en una colección (`ArrayList`) y permite listarlos y filtrarlos
+por ciudad y por lugar. El proyecto está organizado en paquetes
+funcionales y aplica encapsulamiento, composición y reutilización de
+código.
 
-## Estructura de carpetas
+## Paquetes utilizados y clases implementadas
+| Paquete | Clase | Rol |
+|---|---|---|
+| `App` | `Main` | Clase principal: carga los datos, muestra el catálogo y aplica los filtros |
+| `model` | `Guia` | Representa a un guía (nombre, rut y dirección) |
+| `model` | `Direccion` | Lugar, ciudad y precio. Se compone dentro de `Guia` (composición) |
+| `service` | `GestorGuias` | Administra la lista de guías: mostrar todos y filtrar por ciudad o lugar |
+| `util` | `LectorArchivo` | Lee el archivo de texto, separa los datos y crea los objetos |
+| `resources` | `guias.txt` | Archivo con los datos de los guías |
+
+## Estructura del proyecto
 ```
-llanquihue-tour/
+LlanquihueTourApp/
 ├── README.md
 └── src/
+    ├── App/
+    │   └── Main.java
     ├── model/
-    │   └── Tours.java             (nombre, lugar y precio)
-    ├── data/
-    │   └── GestorTour.java        (lee el archivo y crea los objetos)
-    ├── ui/
-    │   └── LlanquihueTourApp.java (clase Main: recorre y filtra)
+    │   ├── Guia.java
+    │   └── Direccion.java
+    ├── service/
+    │   └── GestorGuias.java
+    ├── util/
+    │   └── LectorArchivo.java
     └── resources/
-        └── archivos.txt           (datos separados por ;)
+        └── guias.txt
 ```
 
-## Formato de archivos.txt
-Una línea por tour, con los campos separados por punto y coma, sin espacios:
+## Formato de guias.txt
+Una línea por guía, con los datos separados por punto y coma:
 ```
-nombre;lugar;precio
+lugar;ciudad;precio;nombre;rut
+```
+Ejemplo:
+```
+Baquedano;Santiago;46000;Pedro Ascui;18638007k
 ```
 
-## Cómo ejecutar la clase Main
+## Cómo ejecutar el programa
 1. Clonar o descargar el repositorio.
 2. Abrir el proyecto en NetBeans (File → Open Project).
-3. Verificar que `archivos.txt` esté en `src/resources/`.
-4. Ejecutar la clase `LlanquihueTourApp` del paquete `ui`
+3. Verificar que `guias.txt` esté en `src/resources/`.
+4. Ejecutar la clase `Main` del paquete `App`
    (clic derecho → Run File).
-5. En consola se muestra la lista completa de tours y luego los tours
-   filtrados por lugar.
+5. En consola se muestra la carga del archivo, el catálogo completo de
+   guías y los resultados de los filtros por ciudad y por lugar.
